@@ -6,167 +6,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nongki Cafe Website</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
-        @keyframes slideFromTop {
-            from {
-                transform: translateY(-100%);
-            }
-            to {
-                transform: translateY(0);
-            }
-        }
-        
-        #poster1 {
-            filter: brightness(33%);
-        }
-        /* .homepageFill h1,
-        .homepageFill p,
-        .homepageFill button {
-            transition: transform 0.5s ease-in-out;
-            animation: slideFromTop 0.5s ease-in-out;
-            animation-fill-mode: forwards;
-        } */
-        
-        #judulPoster1 {
-            text-align: center;
-            position: absolute;
-            top: 17%;
-            left: 34%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-weight: bold;
-            font-size: 50px;
-        }
-        
-        #textPoster1 {
-            position: absolute;
-            top: 33%;
-            left: 18%;
-            bottom: 50%;
-            color: white;
-            width: 500px;
-            font-size: 20px;
-            text-align: center;
-        }
-        
-        #buttonPoster1 {
-            font-size: 24px;
-            border-radius: 20px;
-            width: 200px;
-            height: 75px;
-            position: absolute;
-            top: 85%;
-            left: 34.5%;
-            transform: translate(-50%, -50%);
-            color: white;
-            background-color: rgb(92, 39, 13);
-            border-color: white;
-        }
-        
-        #logoPoster {
-            position: absolute;
-            top: 52%;
-            left: 20.7%;
-            bottom: 50%;
-            transform: translate(-50%, -50%);
-            width: 220px;
-        }
-        
-        #homepageMenu {
-            width: 450px;
-            position: absolute;
-            top: 45%;
-            left: 80%;
-            transform: translate(-50%, -50%);
-        }
         body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+            background-color: #f4f4f4;
+        }
+        
+        .menu-title {
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .menu-section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            width: 100%;
+            margin: 40px 0;
+        }
+        
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            object-fit: contain;
+        }
+        
+        .menu-item {
+            position: relative;
+            width: calc(20% - 20px);
+            margin: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            background: #fff;
+            text-align: center;
+            height: 405px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .menu-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .menu-details {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+        
+        #addCart {
+            background-color: brown;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            width: 150px;
+            height: 40px;
+        }
+        
+        .menu-details p {
+            margin: 5px 0;
+        }
+        
+        #addCart:hover {
+            background-color: #a53f3f;
+        }
+        
+        .menuTitle {
+            font-family: "Brush Script MT", cursive;
+            text-align: center;
+            font-size: 70px;
+            margin-top: 80px;
+        }
+        
+        #card1 {
+            border-color: black;
+            width: 240px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+        }
+
+        #card1:hover{
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Slightly larger shadow for a "lifting" effect */
+        }
+
+        .circle-icon {
+        position: absolute;
+         top: 45px; /* Adjust this value to align vertically */
+        right: 705px; /* Adjust this value to align horizontally with the blue circle */
+        z-index: 1000; /* Ensures the icon is above other elements */
+        }
+        .cart-count {
+         background-color: red;
+         color: white;
+         border-radius: 50%;
+         padding: 2px 6px;
+         position: absolute;
+         top: -10px;
+         right: -10px;
+        font-size: 0.8em;
     }
 
-    .menu-title {
-    text-align: center; 
-    font-size: 48px; 
-    font-weight: bold; 
-    margin-top: 20px; 
-    margin-bottom: 20px; 
-}
-
-.menu-section-title {
-    text-align: center; 
-    font-size: 36px; 
-    font-weight: bold; 
-    width: 100%; 
-    margin: 40px 0;
-}
- 
-
-.menu-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    max-width: 1200px; 
-    margin: auto;
-    padding: 20px; 
-    object-fit: contain;
-}
-
-.menu-item {
-    position: relative; 
-    width: calc(20% - 20px); 
-    margin: 10px; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border-radius: 5px;
-    overflow: hidden;
-    background: #fff;
-    text-align: center;
-    height: 405px; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.menu-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Slightly larger shadow for a "lifting" effect */
-}
-.menu-item img {
-    width: 100%; 
-    height: 250px;
-    object-fit: cover; 
-    border-radius: 5px 5px 0 0; 
-}
-    
-.menu-details {
-    position: absolute; 
-    bottom: 10px; 
-    left: 0;
-    width: 100%;
-    text-align: center; 
-}
-.add-to-cart-btn {
-    background-color: #853435;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    width: 100%;
-    display: block;
-    border-radius: 0 0 5px 5px; 
-    border-radius: 20px; 
-}
-.menu-details p {
-    margin: 5px 0; 
-}
-.add-to-cart-btn:hover {
-    background-color: #a53f3f;
-}
     </style>
 </head>
 
 <body>
-    <!-- Ukuran poster homepage: 1519px x 675px-->
+
+     <!-- Ukuran poster homepage: 1519px x 675px-->
 
     <!--Navbar-->
     <section class="NavigationBar">
@@ -192,6 +158,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">OUTLETS</a>
                         </li>
+                        <div class="circle-icon">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span id="cartCount" class="cart-count">0</span>
+                        </div>                        
                         <div id="joinButton" style="display: flex; margin-top: 5px; margin-left: 750px">
                             <li class="nav-item">
                                 <button style=" border-radius: 20px; margin-left: 20px; height: 35px; width: 100px; text-align: center;">Sign Up</button>
@@ -208,282 +178,431 @@
     <br /><br /><br />
     <br /><br /><br />
 
-    <section>
-        <h2 class = "menu-title">FOOD</h2>
-    </section>
-     <!-- Menu Page -->
-     <section class="menu-page">
-        <div class="menu-container">
-            <div class="menu-item">
-                <img src="gambar1.jpg" alt="gambar1">
-                <div class="menu-details">
-                    <h3>Salmon Steak</h3>
-                    <p>Rp95.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Salmon Steak" data-price="95000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar2.jpg" alt="gambar2">
-                <div class="menu-details">
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>Rp55.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Spaghetti Carbonara" data-price="55000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar3.jpg" alt="gambar3">
-                <div class="menu-details">
-                    <h3>Tenderloin Steak</h3>
-                    <p>Rp85.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Tenderloin Steak" data-price="85000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar4.jpg" alt="gambar4">
-                <div class="menu-details">
-                    <h3>Spaghetti Carbonara</h3>
-                    <p>Rp25.000,-</p>
-                    <button class="add-to-cart-btn" data-item="French Fries" data-price="25000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar5.jpg" alt="gambar5">
-                <div class="menu-details">
-                    <h3>Beef Kebab</h3>
-                    <p>Rp35.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Kebab Beef" data-price="35000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar6.jpg" alt="gambar6">
-                <div class="menu-details">
-                    <h3>Beef Burger</h3>
-                    <p>Rp55.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Beef Burger" data-price="55000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar7.jpg" alt="">
-                <div class="menu-details">
-                    <h3>Sandwich</h3>
-                    <p>Rp25.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Sandwich" data-price="25000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar8.jpg" alt="">
-                <div class="menu-details">
-                    <h3>Corden Blue</h3>
-                    <p>Rp75.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Corden Blue" data-price="75000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar9.jpg" alt="">
-                <div class="menu-details">
-                    <h3>Swedish Meatball</h3>
-                    <p>Rp60.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Swedish Meatball" data-price="60000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar10.jpg" alt="">
-                <div class="menu-details">
-                    <h3>Sushi</h3>
-                    <p>Rp30.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Sushi" data-price="30000">Add to Cart</button>
-                </div>
-            </div>
+    <!-- Menu Page -->
+    <h2 class="menu-title">FOOD</h2>
 
-            <h2 class="menu-section-title">BEVERAGES</h2>
+    <section name="menu-page">
+        <div style="
+          margin-top: 50px;
+          display: flex;
+          margin-left: 50px;
+          justify-content: space-between;
+        ">
+            <div class="col">
+                <div class="card h-100" id="card1">
+                    <img src="1.jpg" class="card-img-top" alt="Spaghetti Carbonara" class="imgCard" />
+                    <div class="card-body">
+                        <h5 class="card-title">Spaghetti Carbonara</h5>
+                        <h6>Rp95.000,-</h6>
+                        <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100" id="card1">
+                    <img src="Salmon.png" class="card-img-top" alt="Salmon Steak" id="imgCard2" />
+                    <div class="card-body">
+                        <h5 class="card-title">Salmon Steak</h5>
+                        <h6>Rp80.000,-</h6>
+                        <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100" id="card1">
+                    <img src="Waffle.png" class="card-img-top" alt="Waffle" id="imgCard3" />
+                    <div class="card-body">
+                        <h5 class="card-title">Corden Blue</h5>
+                        <h6>Rp75.000,-</h6>
 
-            <div class="menu-item">
-                <img src="gambar11.jpg" alt="gambar11">
-                <div class="menu-details">
-                    <h3>Ice Tea</h3>
-                    <p>Rp10.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Ice Tea" data-price="10000">Add to Cart</button>
+                        <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                    </div>
                 </div>
             </div>
-            <div class="menu-item">
-                <img src="gambar12.jpg" alt="gambar12">
-                <div class="menu-details">
-                    <h3>Orange Juice</h3>
-                    <p>Rp15.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Orange Juice" data-price="15000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar13.jpg" alt="gambar13">
-                <div class="menu-details">
-                    <h3>Americano Coffee</h3>
-                    <p>Rp20.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Americano" data-price="20000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar14.jpg" alt="gambar14">
-                <div class="menu-details">
-                    <h3>Mojito</h3>
-                    <p>Rp35.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Mojito" data-price="35000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar15.jpg" alt="gambar15">
-                <div class="menu-details">
-                    <h3>Cocktail</h3>
-                    <p>Rp45.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Cocktail" data-price="45000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar16.jpg" alt="gambar16">
-                <div class="menu-details">
-                    <h3>Lime Juice</h3>
-                    <p>Rp10.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Lime" data-price="10000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar17.jpg" alt="gambar17">
-                <div class="menu-details">
-                    <h3>Coca Cola</h3>
-                    <p>Rp8.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Cola" data-price="8000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar18.jpg" alt="gambar18">
-                <div class="menu-details">
-                    <h3>Sprite</h3>
-                    <p>Rp8.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Sprite" data-price="8000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar19.jpg" alt="gambar19">
-                <div class="menu-details">
-                    <h3>Fanta</h3>
-                    <p>Rp5.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Fanta" data-price="5000">Add to Cart</button>
-                </div>
-            </div>
-            <div class="menu-item">
-                <img src="gambar20.jpg" alt="gambar20">
-                <div class="menu-details">
-                    <h3>Mineral Water</h3>
-                    <p>Rp5.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Water" data-price="5000">Add to Cart</button>
-                </div>
-            </div>
+            <div class="col">
+                <div class="card h-100" id="card1">
+                    <img src="Passion Squash.png" class="card-img-top" alt="Passion Squash" id="imgCard4" />
+                    <div class="card-body">
+                        <h5 class="card-title">Sandiwch</h5>
+                        <h6>Rp32.000,-</h6>
 
-            <h2 class="menu-section-title">DESSERT</h2>
-
-            <div class="menu-item">
-                <img src="gambar21.jpg" alt="gambar20">
-                <div class="menu-details">
-                    <h3>Waffles Ice Cream</h3>
-                    <p>Rp55.000,-</p>
-                    <button class="add-to-cart-btn" data-item="Waffles" data-price="55000">Add to Cart</button>
+                        <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                    </div>
                 </div>
             </div>
-                <div class="menu-item">
-                    <img src="gambar22.jpg" alt="gambar22">
-                    <div class="menu-details">
-                        <h3>Pancake</h3>
-                        <p>Rp35.000,-</p>
-                        <button class="add-to-cart-btn" data-item="Pancake" data-price="35000">Add to Cart</button>
+            <div class="col">
+                <div class="card h-100" id="card1">
+                    <img src="Passion Squash.png" class="card-img-top" alt="Passion Squash" id="imgCard4" />
+                    <div class="card-body">
+                        <h5 class="card-title">Passion Squash</h5>
+                        <h6>Rp32.000,-</h6>
+
+                        <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
                     </div>
                 </div>
-                <div class="menu-item">
-                    <img src="gambar23.jpg" alt="gambar23">
-                    <div class="menu-details">
-                        <h3>Cheese Cake</h3>
-                        <p>Rp45.000,-</p>
-                        <button class="add-to-cart-btn" data-item="Cheese" data-price="45000">Add to Cart</button>
+            </div>
+            </div>
+            <section name="menu-page">
+                <div style="
+                  margin-top: 50px;
+                  display: flex;
+                  margin-left: 50px;
+                  justify-content: space-between;
+                ">
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <div class="img-hover-zoom">
+                                <img src="1.jpg" class="card-img-top" alt="Spaghetti Carbonara" class="imgCard" />
+                              </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Spaghetti Carbonara</h5>
+                                <h6>Rp95.000,-</h6>
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="menu-item">
-                    <img src="gambar24.jpg" alt="gambar25">
-                    <div class="menu-details">
-                        <h3>Choco Cake</h3>
-                        <p>Rp40.000,-</p>
-                        <button class="add-to-cart-btn" data-item="Choco" data-price="40000">Add to Cart</button>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Salmon.png" class="card-img-top" alt="Salmon Steak" id="imgCard2" />
+                            <div class="card-body">
+                                <h5 class="card-title">Salmon Steak</h5>
+                                <h6>Rp250.000,-</h6>
+        
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="menu-item">
-                    <img src="gambar25.jpg" alt="gambar25">
-                    <div class="menu-details">
-                        <h3>Tiramisu Cake</h3>
-                        <p>Rp55.000,-</p>
-                        <button class="add-to-cart-btn" data-item="Tiramisu" data-price="55000">Add to Cart</button>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Waffle.png" class="card-img-top" alt="Waffle" id="imgCard3" />
+                            <div class="card-body">
+                                <h5 class="card-title">Ice Cream Waffle</h5>
+                                <h6>Rp55.000,-</h6>
+        
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="menu-item">
-                    <img src="gambar26.jpg" alt="gambar26">
-                    <div class="menu-details">
-                        <h3>Pudding</h3>
-                        <p>Rp25.000,-</p>
-                        <button class="add-to-cart-btn" data-item="Pudding" data-price="25000">Add to Cart</button>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Passion Squash.png" class="card-img-top" alt="Passion Squash" id="imgCard4" />
+                            <div class="card-body">
+                                <h5 class="card-title">Passion Squash</h5>
+                                <h6>Rp32.000,-</h6>
+        
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="menu-item">
-                    <img src="gambar27.jpg" alt="gambar27">
-                    <div class="menu-details">
-                        <h3>Red Velvet Cookies</h3>
-                        <p>Rp35.000,-</p>
-                        <button class="add-to-cart-btn" data-item="Cookies" data-price="35000">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="gambar28.jpg" alt="gambar28">
-                    <div class="menu-details">
-                        <h3>Miso Creme Brulee</h3>
-                        <p>Rp35.000,-</p>
-                        <button class="add-to-cart-btn" data-item="Creme" data-price="35000">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="gambar29.jpg" alt="gambar29">
-                    <div class="menu-details">
-                        <h3>Croissant</h3>
-                        <p>Rp35.000,-</p>
-                        <button class="add-to-cart-btn" data-item="Croissant" data-price="35000">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="gambar30.jpg" alt="gambar30">
-                    <div class="menu-details">
-                        <h3>Ice Cream</h3>
-                        <p>Rp15.000,-</p>
-                        <button class="add-to-cart-btn" data-item="Cream" data-price="15000">Add to Cart</button>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Passion Squash.png" class="card-img-top" alt="Passion Squash" id="imgCard4" />
+                            <div class="card-body">
+                                <h5 class="card-title">Passion Squash</h5>
+                                <h6>Rp32.000,-</h6>
+        
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         
-        </div>
+            <h2 class="menu-title">BEVERAGE</h2>
+
+            <section name="menu-page">
+                <div style="
+                  margin-top: 50px;
+                  display: flex;
+                  margin-left: 50px;
+                  justify-content: space-between;
+                ">
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="1.jpg" class="card-img-top" alt="Spaghetti Carbonara" class="imgCard" />
+                            <div class="card-body">
+                                <h5 class="card-title">Spaghetti Carbonara</h5>
+                                <h6>Rp95.000,-</h6>
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Salmon.png" class="card-img-top" alt="Salmon Steak" id="imgCard2" />
+                            <div class="card-body">
+                                <h5 class="card-title">Salmon Steak</h5>
+                                <h6>Rp250.000,-</h6>
         
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Waffle.png" class="card-img-top" alt="Waffle" id="imgCard3" />
+                            <div class="card-body">
+                                <h5 class="card-title">Ice Cream Waffle</h5>
+                                <h6>Rp55.000,-</h6>
+        
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Passion Squash.png" class="card-img-top" alt="Passion Squash" id="imgCard4" />
+                            <div class="card-body">
+                                <h5 class="card-title">Passion Squash</h5>
+                                <h6>Rp32.000,-</h6>
+        
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Passion Squash.png" class="card-img-top" alt="Passion Squash" id="imgCard4" />
+                            <div class="card-body">
+                                <h5 class="card-title">Passion Squash</h5>
+                                <h6>Rp32.000,-</h6>
+        
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+         <section name="menu-page">
+                <div style="
+                  margin-top: 50px;
+                  display: flex;
+                  margin-left: 50px;
+                  justify-content: space-between;
+                ">
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="1.jpg" class="card-img-top" alt="Spaghetti Carbonara" class="imgCard" />
+                            <div class="card-body">
+                                <h5 class="card-title">Spaghetti Carbonara</h5>
+                                <h6>Rp95.000,-</h6>
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Salmon.png" class="card-img-top" alt="Salmon Steak" id="imgCard2" />
+                            <div class="card-body">
+                                <h5 class="card-title">Salmon Steak</h5>
+                                <h6>Rp250.000,-</h6>
+        
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Waffle.png" class="card-img-top" alt="Waffle" id="imgCard3" />
+                            <div class="card-body">
+                                <h5 class="card-title">Ice Cream Waffle</h5>
+                                <h6>Rp55.000,-</h6>
+        
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Passion Squash.png" class="card-img-top" alt="Passion Squash" id="imgCard4" />
+                            <div class="card-body">
+                                <h5 class="card-title">Passion Squash</h5>
+                                <h6>Rp32.000,-</h6>
+        
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Passion Squash.png" class="card-img-top" alt="Passion Squash" id="imgCard4" />
+                            <div class="card-body">
+                                <h5 class="card-title">Passion Squash</h5>
+                                <h6>Rp32.000,-</h6>
+        
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+            <h2 class="menu-title">DESSERT</h2>
+            <section name="menu-page">
+                <div style="
+                  margin-top: 50px;
+                  display: flex;
+                  margin-left: 50px;
+                  justify-content: space-between;
+                ">
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="1.jpg" class="card-img-top" alt="Spaghetti Carbonara" class="imgCard" />
+                            <div class="card-body">
+                                <h5 class="card-title">Spaghetti Carbonara</h5>
+                                <h6>Rp95.000,-</h6>
+                                <<button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Salmon.png" class="card-img-top" alt="Salmon Steak" id="imgCard2" />
+                            <div class="card-body">
+                                <h5 class="card-title">Salmon Steak</h5>
+                                <h6>Rp250.000,-</h6>
+        
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Waffle.png" class="card-img-top" alt="Waffle" id="imgCard3" />
+                            <div class="card-body">
+                                <h5 class="card-title">Ice Cream Waffle</h5>
+                                <h6>Rp55.000,-</h6>
+        
+                                <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Passion Squash.png" class="card-img-top" alt="Passion Squash" id="imgCard4" />
+                            <div class="card-body">
+                                <h5 class="card-title">Passion Squash</h5>
+                                <h6>Rp32.000,-</h6>
+        
+                                 <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Passion Squash.png" class="card-img-top" alt="Passion Squash" id="imgCard4" />
+                            <div class="card-body">
+                                <h5 class="card-title">Passion Squash</h5>
+                                <h6>Rp32.000,-</h6>
+        
+                                 <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+         <section name="menu-page">
+                <div style="
+                  margin-top: 50px;
+                  display: flex;
+                  margin-left: 50px;
+                  justify-content: space-between;
+                ">
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="1.jpg" class="card-img-top" alt="Spaghetti Carbonara" class="imgCard" />
+                            <div class="card-body">
+                                <h5 class="card-title">Spaghetti Carbonara</h5>
+                                <h6>Rp95.000,-</h6>
+                                 <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Salmon.png" class="card-img-top" alt="Salmon Steak" id="imgCard2" />
+                            <div class="card-body">
+                                <h5 class="card-title">Salmon Steak</h5>
+                                <h6>Rp250.000,-</h6>
+        
+                                 <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Waffle.png" class="card-img-top" alt="Waffle" id="imgCard3" />
+                            <div class="card-body">
+                                <h5 class="card-title">Ice Cream Waffle</h5>
+                                <h6>Rp55.000,-</h6>
+        
+                                 <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Passion Squash.png" class="card-img-top" alt="Passion Squash" id="imgCard4" />
+                            <div class="card-body">
+                                <h5 class="card-title">Passion Squash</h5>
+                                <h6>Rp32.000,-</h6>
+        
+                                 <button id="addCart" class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" id="card1">
+                            <img src="Passion Squash.png" class="card-img-top" alt="Passion Squash" id="imgCard4" />
+                            <div class="card-body">
+                                <h5 class="card-title">Passion Squash</h5>
+                                <h6>Rp32.000,-</h6>
+                                <input type="number" class="quantity-input" min="1" value="1">
+                                <button class="add-to-cart-btn" data-item="Spaghetti Carbonara" data-price="95000">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
     </section>
-    
-    <script src="script.js">
-        document.addEventListener('DOMContentLoaded', () => {
-    const cartButtons = document.querySelectorAll('.add-to-cart-btn');
 
-    cartButtons.forEach(button => {
-        button.addEventListener('click', addToCart);
-    });
-});
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cartButtons = document.querySelectorAll(".add-to-cart-btn");
 
-function addToCart(event) {
-    const button = event.target;
-    const itemName = button.getAttribute('data-item');
-    const itemPrice = button.getAttribute('data-price');
-    
-    // Add to cart logic here, for now just display an alert
-    alert(`Added ${itemName} to cart for Rp${itemPrice}`);
+            cartButtons.forEach(button => {
+                button.addEventListener("click", addToCart);
+            });
+        });
+
+        let cartCount = 0;
+
+        function addToCart() {
+            cartCount++;
+            document.getElementById('cartCount').textContent = cartCount;
+        }
+
+        function addToCart(event) {
+    const item = event.target.getAttribute('data-item');
+    const price = parseInt(event.target.getAttribute('data-price'), 10);
+    const quantityInput = event.target.previousElementSibling;
+    const quantity = parseInt(quantityInput.value, 10);
+
+    // Asumsikan Anda memiliki cara untuk menangani item dan jumlahnya di keranjang
+    addToCartHandler(item, price, quantity);
+
+    updateCartCount();
+}
+
+function addToCartHandler(item, price, quantity) {
+    // Tambahkan logika untuk menambahkan item ke keranjang
+    console.log(`Added ${quantity} x ${item} (Price: ${price}) to cart`);
+}
+
+function updateCartCount() {
+    // Update jumlah item di keranjang
+    cartCount++;
+    document.getElementById('cartCount').textContent = cartCount;
 }
 
     </script>
-    </body>
-    </html> 
+</body>
+
+</html>
